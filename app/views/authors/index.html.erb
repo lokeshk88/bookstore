@@ -1,0 +1,18 @@
+<% if notice %>
+<div class="alert alert-success" role="alert">
+<%= notice %></div>
+<%end%>
+
+<h1>Authors</h1>
+<br />
+<div class="mt-5 mb-3" align="right">
+<%= link_to "New author", new_author_path,style: 'width:150px;',class:"btn btn-primary"%>
+</div>
+<div class="card">
+  <% @authors.each do |author| %>
+    <%= render author %>
+    <h4><%= author.name %></h4>
+  <% end %>
+</div>
+
+

@@ -1,0 +1,43 @@
+<%= form_with(model: author) do |form| %>
+  <% if author.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
+
+      <ul>
+        <% author.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!-- <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        
+      </div>
+    </div>
+  </div>
+ -->
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <%= form.label :"Author's_Name", style: "display: block" %>
+        <%= form.text_field :name , class:"form-control"%>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+        <%= form.label :Description, style: "display: block" %>
+        <%= form.text_area :about,class:"form-control",rows: "4"%>
+         <span class="form-text">
+            <i>[must be 50 characters long]</i>
+        </span>
+  </div>
+  <div class="form-group mb-3" align="center">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>

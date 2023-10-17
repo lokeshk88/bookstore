@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+
+ <%= render @author %>
+ <div class="card mb-3">
+    <h4><%= @author.name %></h4>
+    <h6><%= @author.about %></h6>
+  </div>
+
+<br />
+<div class="row">
+<div class="col"><%= link_to "Edit this author", edit_author_path(@author), class:"btn btn-info text-white"%></div>
+<div class="col"><%= link_to "Back to authors", authors_path, class:"btn btn-warning"%></div>
+<div class="col"><%= button_to "Destroy this author", @author,class:"btn btn-danger", method: :delete%></div>
+</div>
