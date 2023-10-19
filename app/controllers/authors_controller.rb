@@ -20,6 +20,11 @@ class AuthorsController < ApplicationController
   def edit
   end
 
+  def update_user_role
+    byebug
+    current_user.update(role: 'author', about: params[:about], name: params[:name])
+  end
+
   # POST /authors or /authors.json
   def create
     @author = Author.new(author_params)
@@ -66,6 +71,6 @@ class AuthorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def author_params
-      params.require(:author).permit(:name, :about)
+      params.require(:author).permit(:name, :about, :user_id)
     end
 end

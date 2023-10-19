@@ -72,3 +72,6 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 gem "devise", "~> 4.9"
+gem "byebug"
+
+gem "image_processing", "~> 1.12"

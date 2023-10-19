@@ -1,7 +1,19 @@
-class Admin < ApplicationRecord
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :authors
+  before_create :assign_role
+
+  has_many :books
+  enum role: {
+    admin: 0,
+    author: 1,
+    user: 2
+  }
+
+  def assign_role
+    self.role = 'user'
+  end
 end
+
