@@ -7,3 +7,15 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+# Book.delete_all
+
+# 50.times do |n|
+# 	Book.create(
+# 	title:Faker::Book.title,
+#    	description:Faker::Lorem.paragraph_by_chars,
+#     written_at:Faker::Date.between(from: '1990-01-01', to: Date.today),
+#     user_id: 1
+# )
+# end

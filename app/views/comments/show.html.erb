@@ -1,0 +1,8 @@
+<%= render @comment %></p>
+
+<div>
+  <%= link_to "Edit this comment", edit_comment_path(@comment) , class:"btn btn-primary"%> |
+  <%= link_to "Back to comments", comments_path , class:"btn btn-warning"%>
+
+  <%= button_to "Destroy this comment", @comment,, class:"btn btn-danger", method: :delete %>
+</div>

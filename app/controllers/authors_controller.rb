@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :authenticate_user!,  except: [:index, :show]
+  # before_action :authenticate_user!,  except: [:index, :show]
   before_action :set_author, only: %i[ show edit update destroy ]
 
   # GET /authors or /authors.json
@@ -18,6 +18,11 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
+  end
+
+  def update_user_role
+    byebug
+    current_user.update(role: 'author', about: params[:about], name: params[:name])
   end
 
   # POST /authors or /authors.json
@@ -66,6 +71,6 @@ class AuthorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def author_params
-      params.require(:author).permit(:name, :about)
+      params.require(:author).permit(:name, :about, :user_id)
     end
 end

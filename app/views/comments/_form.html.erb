@@ -1,0 +1,26 @@
+
+<%= form_for [current_user, @comment.book, @comment] do |form| %>
+  <!-- <%# if @comment.errors.any? %>
+    <div style="color: red">
+      <h2><%#= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <%# comment.errors.each do |error| %>
+          <li><%#= error.full_message %></li>
+        <%# end %>
+      </ul>
+    </div>
+  <%# end %> -->                
+                <div class="bg-light p-2">
+                    <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                        <%= form.text_area :post ,class:"form-control ml-1 shadow-none textarea"%>
+                        <%= form.hidden_field :book_id ,value:@book.id%>
+                        <%= form.hidden_field :user_id ,value:current_user.id%>
+                    </div>
+                    <div class="actions mt-2 text-right">
+                      <%= form.submit class:"btn btn-primary btn-sm shadow-none"%>
+                      <%= link_to "Delete", user_book_path(@book),class:"btn btn-outline-primary btn-sm ml-1 shadow-none", method: :delete, data: { confirm: "Are you sure?" } %>
+                    </div>
+                </div>
+    <% end %>
+</div>

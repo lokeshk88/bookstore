@@ -1,10 +1,12 @@
+<div class="container p-5 mt-5">
 <h1>Editing book</h1>
 
 <%= render "form", book: @book %>
 
 <br>
 
-<div>
-  <%= link_to "Show this book", @book %> |
-  <%= link_to "Back to books", books_path %>
+<div class="row mb-3">
+  <%= link_to "Show this book", user_book_path(@book), class:"btn btn-info"%> |
+  <%= link_to "Back to books", user_books_path, class:"btn btn-warning" %>
+</div>
 </div>
