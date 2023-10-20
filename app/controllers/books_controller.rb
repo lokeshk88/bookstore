@@ -8,10 +8,9 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
+    @comment = @book.comments.build
   end
-  def list
-    @authors=Author.all
-  end
+  
   # GET /books/new
   def new
     @book = current_user.books.build
@@ -21,6 +20,7 @@ class BooksController < ApplicationController
   def edit
   end
 
+  
   # POST /books or /books.json
   def create
     @book = current_user.books.build(book_params)
@@ -67,6 +67,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :description, :written_at, :user_id)
+      params.require(:book).permit(:title, :description, :written_at, :user_id, :page)
     end
 end

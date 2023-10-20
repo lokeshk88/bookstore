@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @book %>
 
 <div class="row mb-3">
@@ -7,9 +5,25 @@
     <%= link_to "Edit this book", edit_user_book_path(@book), class:"btn btn-success"%>
   </div>
   <div class="col">
-  <%= link_to "Back to books", user_books_path, class:"btn btn-warning"%>
+  <%= link_to "Back to books", user_books_path(@book), class:"btn btn-warning"%>
 </div>
   <div class="col">
   <%= button_to "Destroy this book", user_book_path(current_user, @book), method: :delete, class:"btn btn-danger" %>
+</div>
+
+</div>
+
+<div class="card mt-3 bg-dark">
+<p style="color: green"><b><%= notice %></b></p>
+<div class="container mt-5">
+<h5>Leave Comment</h5>
+<div class="d-flex justify-content-center">
+        <div class="col-md-8">
+            <div class="d-flex flex-column comment-section">
+              <%=render "comments/view"%>
+              <%=render "comments/form"%>
+            </div>
+        </div>
+</div>
 </div>
 </div>

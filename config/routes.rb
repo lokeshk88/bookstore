@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   end
 
   resources :user do 
-    resources :books
+    resources :books do 
+      resources :comments
+    end
   end
   
   resources :authors do 
@@ -14,7 +16,9 @@ Rails.application.routes.draw do
       post :update_user_role
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+
+  # Define cyour application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

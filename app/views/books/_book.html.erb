@@ -1,17 +1,7 @@
-<div id="<%= dom_id book %>">
+<div class="container">
   <p>
-    <strong>Title:</strong>
-    <%= book.title %>
+    <strong>About book:</strong>
+    <br/>
+    <%= @book.description %>
   </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= book.description %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= book.user.name %>
-  </p>
-
 </div>
