@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :book_users
   has_many :books, through: :book_users
 
+ 
+
   has_many :books
   enum role: {
     admin: 0,
@@ -18,5 +20,6 @@ class User < ApplicationRecord
   def assign_role
     self.role = 'user'
   end
+  
 end
 

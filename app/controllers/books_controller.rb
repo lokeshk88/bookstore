@@ -49,6 +49,19 @@ class BooksController < ApplicationController
     end
   end
 
+  def like
+  @book = current_user.books.find(params[:id])
+  @book.likes.create(user: current_user)
+  redirect_to @book
+  end
+
+  def unlike
+    @book = current_user.books.find(params[:id])
+    @like = @book.likes.find_by(user: current_user)
+    @like.destroy if @like
+    redirect_to @book
+  end
+
   # DELETE /books/1 or /books/1.json
   def destroy
     @book.destroy!

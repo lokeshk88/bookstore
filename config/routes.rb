@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'likes/create'
   devise_for :users 
 
   devise_scope :user do
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :user do 
     resources :books do 
-      resources :comments
+      resources :comments 
     end
   end
   
@@ -15,6 +16,10 @@ Rails.application.routes.draw do
     collection do
       post :update_user_role
     end
+  end
+
+  resources :books do
+    post 'like', to: 'likes#create'
   end
 
 
@@ -25,5 +30,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root to: "authors#index"
+  root to: "books#index"
 end
