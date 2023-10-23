@@ -2,8 +2,8 @@
 
 one:
   user: one
-  comment: one
+  book: one
 
 two:
   user: two
-  comment: two
+  book: two

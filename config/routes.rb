@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :books do
-    post 'like', to: 'likes#create'
+    post 'likes', to: 'likes#create'
   end
 
 

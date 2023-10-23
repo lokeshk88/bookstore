@@ -20,16 +20,43 @@
             <div class="badge"> <span>Design</span> </div>
         </div>
         <div class="mt-5">
-            <% if book.page.attached?%>
-              <%= link_to image_tag(book.page,style:"width:10rem; height:15rem;border-radius:0%;border:2px;solid:#0d6efd;")%>
-            <%end%>
+            <%# if book.page.attached?%>
+              <%= link_to image_tag("Book-cover-page.png",style:"width:10rem; height:15rem;border-radius:0%;border:2px;solid:#0d6efd;")%>
+            <%#end%>
              <div class="mt-5">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
                     </div>
                 </div>
                 <div class="mt-3">
-                    <span class="text1"><%#= link_to "Like", book_like_path(book,@likes), method: :post, remote: true %>        
+                    <span class="text1">
+                        <p id="like-count"><%= book.likes %></p>
+                        <%= link_to "Like", book_likes_path(current_user,book,@likes),class:"btn btn-sm btn-primary"%> 
+                        <script>
+                          document.addEventListener('DOMContentLoaded', function () {
+                            const likeButton = document.getElementById('like-button');
+                            const likeCount = document.getElementById('like-count');
+                            let isLiked = false;
+                            
+                            likeButton.addEventListener('click', function () {
+                              if (!isLiked) {
+                                // Simulate an AJAX request to update the like count on the server
+                                // You can use a real AJAX call to update the like count in the database
+                                // For demonstration, we're just incrementing the count here.
+                                book.likes_count += 1; // Update the like count on the server
+                                
+                                // Update the view with the new like count
+                                likeCount.textContent = book.likes_count;
+                                likeButton.textContent = 'Unlike';
+                                isLiked = true;
+                              } else {
+                                // Handle unliking logic here
+                                // This would involve sending a request to remove the like from the server
+                                // and decrementing the like count.
+                              }
+                            });
+                          });
+                        </script>       
                     </span> 
                 </div>
             </div>
@@ -50,3 +77,8 @@
 <% end %>
 </div>
 
+
+
+
+<!-- Your content continues here -->
+<!-- Your content here -->
