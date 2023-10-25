@@ -9,13 +9,13 @@
 #   end
 
 
-# Book.delete_all
+Book.delete_all
 
-# 50.times do |n|
-# 	Book.create(
-# 	title:Faker::Book.title,
-#    	description:Faker::Lorem.paragraph_by_chars,
-#     written_at:Faker::Date.between(from: '1990-01-01', to: Date.today),
-#     user_id: 1
-# )
-# end
+50.times do |n|
+  Book.find_or_create_by(
+    user_id: User.first.id,
+    title: Faker::Book.title,
+    description: Faker::Lorem.paragraph_by_chars,
+    written_at: Faker::Date.between(from: '1970-06-01', to: Date.today)
+    )
+end
